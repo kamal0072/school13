@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Tempalte</title>
+    <link rel="stylesheet" href="{% static "poll/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "poll/css/mystyle.css" %}">
+</head>
+<body>
+    {% block header %}
+    {% endblock header %}
+    
+    {% block message %}
+        
+    {% endblock message %}
+
+    {% block headtag %}    
+    
+    {% endblock headtag %}
+
+    {% block signupform %}
+    {% endblock signupform %}
+
+    {% block loginform %}
+    {% endblock loginform %}
+
+    {% block footer %}
+    {% endblock footer %}
+
+    {% block userprofile %}
+    {% endblock userprofile %}
+
+    {% block changepwd1 %}
+    {% endblock changepwd1 %}
+
+    {% block changepwd2 %}
+    {% endblock changepwd2 %}
+    
+    <script src="{% static "poll/js/bootstrap.js" %}"></script>
+    <script src="{% static "poll/js/jquery.js" %}"></script>
+</body>
+</html>

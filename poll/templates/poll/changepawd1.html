@@ -1,0 +1,25 @@
+{% extends "poll/base.html" %}
+{% load static %}
+
+{% block changepwd1 %}
+<div class='row mt-5'>
+    <div class="col-6 offset-3 mt-5 bg-light p-5 shadow-lg rounded-5 ">
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors  %}
+                    {{error}}
+                {% endfor %}
+            {% endif %}
+
+            {% for form in form %}
+                {{form.label_tag}} {{form}}{{form.errors|striptags}} <br>
+            {% endfor %}
+
+
+            <input type="submit" value='Change' class="btn btn-outline-danger  ">
+            <a href="{% url "userprofile" %}" class="btn btn-success ">Profile.</a>
+        </form>
+    </div>
+</div>
+{% endblock changepwd1 %}

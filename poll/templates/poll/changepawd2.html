@@ -1,0 +1,23 @@
+{% extends "poll/base.html" %}
+{% load static %}
+
+{% block changepwd2 %}
+<div class='row mt-5'>
+    <div class="col-6 offset-3 mt-5 bg-light p-5 shadow-lg rounded-5 ">
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors  %}
+                    {{error}}
+                {% endfor %}
+            {% endif %}
+
+            {% for form in form %}
+                {{form.label_tag}} {{form}}{{form.errors|striptags}} <br>
+            {% endfor %}
+            <input type="submit" value='Set Password' class="btn btn-outline-danger  ">
+            {% comment %} <a href="{% url "login" %}" class="btn btn-success ">Login.</a> {% endcomment %}
+        </form>
+    </div>
+</div>
+{% endblock changepwd2 %}

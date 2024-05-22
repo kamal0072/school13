@@ -1,0 +1,45 @@
+{% extends "poll/base.html" %}
+{% load static %}
+
+{% block header %}
+    {% include "poll/header.html" %}
+{% endblock header %}
+
+{% block message %}
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="alert alert-success" role="alert">
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock message %}
+
+{% block signupform %}
+    <div class="container ">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="{% static "poll/images/signup.webp" %}" class="img-fluid " alt="signupformImages">
+            </div>
+            <div class="col-sm-6 mt-5">
+
+                <form action="" method="post" novalidate>
+                    {% csrf_token %}
+                    {% for form in form %}
+                        {{form.label_tag}} 
+                        {{form}} 
+                        {{form.errors|striptags}} <br>
+                    {% endfor %}
+                    <input class="btn btn-outline-success  " type="submit" value="SignUp">
+                    <button type='reset' class="btn btn-outline-light ">Reset</button>
+                    <a class="btn btn-outline-dark " href="#">Cancel</a>
+                    <a class="btn btn-outline-dark " href="{% url "login" %}">Login</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock signupform %}
+
+{% block footer %}
+    {% include "poll/footer.html" %}
+{% endblock footer %}
